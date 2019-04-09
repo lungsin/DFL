@@ -30,7 +30,7 @@ def splited_worker_data():
     x_test = split_by_rank(x_test)
     y_test = split_by_rank(y_test)
     
-    print(f"{rank} : {x_train.shape}")
+    print(str(rank) + " : " + str(x_train.shape))
     
     # reshape to (img_cols, img_rows, img_depth)
     img_cols = x_train.shape[1]
@@ -79,7 +79,7 @@ def main():
     epoch = 10
     for e in range(epoch):
         if rank == 0:
-            print(f"Server's Epoch: {e + 1}")
+            print("Server's Epoch: " + str(e + 1))
         # broadcast server's model
         weights = model.get_weights()
         weights = comm.bcast(weights, root=0)   
