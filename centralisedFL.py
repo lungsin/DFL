@@ -116,4 +116,5 @@ import time
 start = time.time()
 main()
 end = time.time()
-print(end - start) 
+if rank == SERVER:
+    print("Time elapsed: ", end - start) 

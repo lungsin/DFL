@@ -71,4 +71,4 @@ import time
 start = time.time()
 main()
 end = time.time()
-print(end - start) 
+print("Time elapsed: ", end - start) 
