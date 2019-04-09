@@ -59,7 +59,7 @@ def main():
     model = build_model()
     
     epoch = 1
-    model.fit(x_train, y_train, batch_size=32, nb_epoch=epoch, verbose=1)
+    model.fit(x_train, y_train, batch_size=32, nb_epoch=epoch, verbose=0)
     	
     score = model.evaluate(x_test, y_test, verbose=0)
     print('Test loss:', score[0])

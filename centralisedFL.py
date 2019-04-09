@@ -27,8 +27,6 @@ def splited_worker_data():
     # each worker can only see some part of the data
     x_train = split_by_rank(x_train)
     y_train = split_by_rank(y_train)
-    x_test = split_by_rank(x_test)
-    y_test = split_by_rank(y_test)
     
     print(str(rank) + " : " + str(x_train.shape))
     
@@ -85,7 +83,7 @@ def main():
         weights = comm.bcast(weights, root=0)   
         model.set_weights(weights)
         
-        model.fit(x_train, y_train, batch_size=32, nb_epoch=1, verbose=1)
+        model.fit(x_train, y_train, batch_size=32, nb_epoch=1, verbose=0)
         
         # federate step
         data = [x_train.shape[0], model.get_weights()]
