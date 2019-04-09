@@ -83,7 +83,7 @@ def main():
         weights = comm.bcast(weights, root=0)   
         model.set_weights(weights)
         
-        model.fit(x_train, y_train, batch_size=32, nb_epoch=1, verbose=0)
+        model.fit(x_train, y_train, batch_size=32, epochs=1, verbose=0)
         
         # federate step
         data = [x_train.shape[0], model.get_weights()]
