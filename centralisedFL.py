@@ -111,10 +111,4 @@ def main():
         print('Test loss:', score[0])
         print('Test accuracy:', score[1])
         
-        
-import time
-start = time.time()
 main()
-end = time.time()
-if rank == SERVER:
-    print("Time elapsed: ", end - start) 
