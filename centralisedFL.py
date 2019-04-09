@@ -79,6 +79,8 @@ def main():
     for e in range(epoch):
         if rank == 0:
             print("Server's Epoch: " + str(e + 1))
+            sys.stdout.flush()
+            
         # broadcast server's model
         weights = model.get_weights()
         weights = comm.bcast(weights, root=0)   

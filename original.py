@@ -1,6 +1,8 @@
 import os
 
 import numpy as np
+import sys
+
 np.random.seed(123)  # for reproducibility
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
