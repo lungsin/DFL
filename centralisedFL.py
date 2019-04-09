@@ -1,5 +1,6 @@
 from mpi4py import MPI
 import os
+
 comm = MPI.COMM_WORLD
 size = comm.Get_size()
 rank = comm.Get_rank()
@@ -108,4 +109,8 @@ def main():
         print('Test accuracy:', score[1])
         
         
+import time
+start = time.time()
 main()
+end = time.time()
+print(end - start) 
