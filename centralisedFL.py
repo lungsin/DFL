@@ -102,8 +102,12 @@ def main():
                 weights[i] /= N
                  
             model.set_weights(weights)
-            	
-    score = model.evaluate(x_test, y_test, verbose=0)
+    
+    # after training is over, try to test
+    if rank == SERVER:            	
+        score = model.evaluate(x_test, y_test, verbose=0)
+        print('Test loss:', score[0])
+        print('Test accuracy:', score[1])
         
         
 main()
