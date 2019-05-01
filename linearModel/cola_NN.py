@@ -92,13 +92,15 @@ def main():
         weights = [np.zeros(l.shape) for l in data[0][1]]
         
         for i in range(len(weights)):
-            # N = 0.0
+            N = 0.0
             
             for id_neighbour, w in data:
-                weights[i] += W[id_neighbour] * w[i]
+                if W[id_neighbour]:
+                    weights[i] += w[i]
+                    N += W[id_neighbour]
                 # N += n
             
-            # weights[i] /= N
+            weights[i] /= N
                 
         model.set_weights(weights)
     
