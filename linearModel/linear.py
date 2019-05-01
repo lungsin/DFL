@@ -4,9 +4,7 @@ import numpy as np
 import sys
 
 np.random.seed(123)  # for reproducibility
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation, Flatten
-from keras.layers import Convolution2D, MaxPooling2D
+from model import build_model
 from keras.utils import np_utils
 
 from keras.datasets import mnist
@@ -33,22 +31,6 @@ def load_data():
     y_test = np_utils.to_categorical(y_test, 10)
     
     return (x_train, y_train), (x_test, y_test)
-
-def build_model():
-    # Build the model 
-    model = Sequential()
-    
-    model.add(Flatten(input_shape=(28, 28, 1)))
-    # model.add(Dropout(rate=0.25))
-    # model.add(Dense(128))
-    # model.add(Dropout(rate=0.5))
-    model.add(Dense(10, activation='softmax'))
-    
-    model.compile(loss='categorical_crossentropy',
-              optimizer='sgd',
-              metrics=['accuracy'])
-    
-    return model
 
 def main():
     (x_train, y_train), (x_test, y_test) = load_data()
