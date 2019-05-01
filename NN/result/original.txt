@@ -1,0 +1,6 @@
+Test loss: 0.048572332946793174
+Test accuracy: 0.9848
+
+real	10m38.409s
+user	69m16.801s
+sys	4m2.576s
